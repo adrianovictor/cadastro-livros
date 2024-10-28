@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>Dados do Livro</h2>
+    <br>
+    <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+      <div class="mb-3">
+        <label for="title" class="form-label">Título</label>
+        <input type="text" id="title" class="form-control" [(ngModel)]="book.title" name="title" required>        
+      </div>
+  
+      <div class="mb-3">
+        <label for="author" class="form-label">Autor</label>
+        <input type="text" id="author" class="form-control" [(ngModel)]="book.author" name="author" required>
+        <!-- Se você tiver um dropdown para selecionar o autor, substitua isso -->
+        <!--<input type="number" id="authorId" class="form-control" [(ngModel)]="book.authorId" name="authorId">-->
+      </div>
+  
+      <div class="mb-3">
+        <label for="subject" class="form-label">Assunto</label>
+        <input type="text" id="subject" class="form-control" [(ngModel)]="book.subject" name="subject">
+      </div>
+     
+      <div class="mb-3">
+        <label for="publisher" class="form-label">Editora</label>
+        <input type="text" id="publisher" class="form-control" [(ngModel)]="book.publisher" name="publisher">
+      </div>
+  
+      <!-- Linha para Edição e Ano da Publicação -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="edition" class="form-label">Edição</label>
+          <input type="number" id="edition" class="form-control" [(ngModel)]="book.edition" name="edition">
+        </div>
+
+        <div class="col-md-6">
+          <label for="yearOfPublication" class="form-label">Ano da Publicação</label>
+          <input type="text" id="yearOfPublication" class="form-control" [(ngModel)]="book.yearOfPublication" name="yearOfPublication">
+        </div>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a routerLink="/livros" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Voltar</a>
+        <button type="submit" class="btn btn-success">
+            <i class="fas fa-save"></i> Salvar Livro</button>
+      </div>
+      
+    </form>
+  </div>
+  

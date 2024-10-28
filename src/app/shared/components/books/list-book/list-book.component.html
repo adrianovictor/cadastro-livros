@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Lista de Livros</h2>
+
+  <div class="mb-3 input-group">
+    <span class="input-group-text">
+      <i class="fas fa-search"></i> <!-- Ícone de lupa -->
+    </span>
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Buscar por título ou autor" 
+      [(ngModel)]="searchText" 
+      (input)="filterBooks()" />
+  </div>  
+
+  <table class="table table-responsive table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Título</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Editora</th>
+        <th scope="col">Ano Publicação</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let livro of filteredBooks">
+          <th scope="row">{{ livro.id }}</th>
+          <td>{{ livro.title }}</td>
+          <td>{{ livro.author }}</td>
+          <td>{{ livro.publisher }}</td>
+          <td>{{ livro.yearOfPublication }}</td>
+          <td>
+            <a [routerLink]="['/editar-livro', livro.id]" class="text-primary" title="Editar">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a (click)="remover(livro.id)" class="text-danger" title="Remover">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>        
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <a routerLink="/novo-livro" class="btn btn-success"><i class="fas fa-plus"></i> Adicionar Livro</a>
+  </div>
+
+</div>

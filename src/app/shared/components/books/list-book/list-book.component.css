@@ -1,0 +1,22 @@
+/* src/styles.css ou no CSS do componente */
+.table td {
+    vertical-align: middle; /* Alinha o conteúdo verticalmente ao centro */
+}
+
+.table a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.table a:hover {
+    opacity: 0.8; /* Efeito ao passar o mouse */
+}
+
+.table td i {
+    font-size: 1.2em; /* Aumenta o tamanho dos ícones */
+}
+
+/* Adicionando margem personalizada se necessário */
+.table td .text-primary,
+.table td .text-danger {
+    margin-right: 10px; /* Ajuste conforme necessário */
+}

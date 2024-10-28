@@ -1,0 +1,6 @@
+<div *ngFor="let toast of toasts" class="toast" role="alert" aria-live="assertive" aria-atomic="true" 
+     [ngClass]="{'bg-success': toast.type === 'success', 'bg-danger': toast.type === 'error'}">
+    <div class="toast-body">
+        {{ toast.message }}
+    </div>
+</div>
