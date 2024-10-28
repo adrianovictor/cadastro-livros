@@ -26,16 +26,29 @@
   
       <!-- Linha para Edição e Ano da Publicação -->
       <div class="row mb-3">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <label for="edition" class="form-label">Edição</label>
           <input type="number" id="edition" class="form-control" [(ngModel)]="book.edition" name="edition">
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-8">
           <label for="yearOfPublication" class="form-label">Ano da Publicação</label>
           <input type="text" id="yearOfPublication" class="form-control" [(ngModel)]="book.yearOfPublication" name="yearOfPublication">
         </div>
       </div>
+
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="price" class="form-label">Preço</label>
+          <input type="number" id="price" class="form-control" [(ngModel)]="book.price" name="edition" (blur)="formatPrice()" placeholder="R$ 0,00">
+        </div>
+
+        <div class="col-md-4">
+          <label for="quantity" class="form-label">Quantidade</label>
+          <input type="text" id="quantity" class="form-control" [(ngModel)]="book.quantity" name="quantity" required>
+        </div>
+      </div>      
+
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a routerLink="/livros" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> Voltar</a>

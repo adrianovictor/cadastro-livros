@@ -57,4 +57,10 @@ export class EditBookComponent implements OnInit {
       }
     });    
   }
+
+  formatPrice(): void {
+    if (this.book.price) {
+      this.book.price = parseFloat(this.book.price.toString().replace(',', '.'));
+    }
+  }  
 }

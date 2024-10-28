@@ -7,4 +7,6 @@ export interface Book {
     publisher: string,
     edition: number,
     yearOfPublication: string,
+    price: number,
+    quantity: number,
 };
