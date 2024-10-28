@@ -13,8 +13,18 @@ import { Book } from '../../../../core/models/book.model';
   styleUrl: './create-book.component.css'
 })
 export class CreateBookComponent implements OnInit {
-  bookId!: number; // ID do livro a ser editado
-  book!: Book; // Objeto livro que será editado
+  book: Book = {
+    id: 0,
+    title: '',
+    author: '',
+    publisher: '',
+    edition: 1,
+    yearOfPublication: '',
+    price: 0.00,
+    quantity: 1,
+    authorId: 0,
+    subject: ''
+  };
   
   constructor(
     private route: ActivatedRoute, 
@@ -22,15 +32,17 @@ export class CreateBookComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const id = params.get('id'); // Captura o ID da URL
-      if (id) {
-        this.bookId = +id; // Converte a string para número
-        //this.loadBook();
-      }
-    });
   }
 
   onSubmit(): void {
-  }
+    this.bookService.saveBook(this.book).subscribe(() => {
+      this.router.navigate(['/livros']);
+    });    
+  }  
+
+  formatPrice(): void {
+    if (this.book.price) {
+      this.book.price = parseFloat(this.book.price.toString().replace(',', '.'));
+    }
+  }   
 }

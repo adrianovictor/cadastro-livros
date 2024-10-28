@@ -30,6 +30,15 @@ export class BookService {
   }  
 
   /**
+   * Registra as informações de um determinado livro
+   * @param book dados do livro
+   * @returns 
+   */
+  saveBook(book: Book): Observable<any> {
+    return this.http.post(this.bookApi, book);
+  }  
+
+  /**
    * Atualiza informações de um determinado livro
    * @param book dados do livro
    * @returns 
